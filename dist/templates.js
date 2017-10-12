@@ -1,0 +1,3 @@
+angular.module('templates').run(['$templateCache', function($templateCache) {$templateCache.put('createquiz.html','<!DOCTYPE html>\r\n<html lang="en">\r\n<head>\r\n    <meta charset="UTF-8">\r\n    <title>hello</title>\r\n</head>\r\n<body>\r\n\r\n</body>\r\n</html>');
+$templateCache.put('results.html','<!DOCTYPE html>\r\n<html lang="en">\r\n<head>\r\n    <meta charset="UTF-8">\r\n    <title>Title</title>\r\n</head>\r\n<body>\r\n\r\n</body>\r\n</html>');
+$templateCache.put('takequiz.html','<!DOCTYPE html>\r\n<html lang="en">\r\n<head>\r\n    <meta charset="UTF-8">\r\n    <title>take Quiz</title>\r\n</head>\r\n<body>\r\n\r\n</body>\r\n</html>');}]);

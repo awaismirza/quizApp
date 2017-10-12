@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="quizApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="quizApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="quizApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="quizApp" class="no-js"> <!--<![endif]-->
+<head>
+  <title>Quiz App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Awais Mirza">
+
+    <link rel="stylesheet" href="dist/style.css">
+    <script src="dist/libs.js"></script>
+    <script src="dist/app.js"></script>
+    <script src="dist/templates.js"></script>
+</head>
+<body ng-controller="quizController">
+    <input ng-model="test" placeholder="Type here">
+    {{test}}
+</body>
+</html>
