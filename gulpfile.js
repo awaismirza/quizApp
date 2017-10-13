@@ -3,7 +3,6 @@ const gulp = require('gulp');
 // Installing Gulp Plugins
 
 const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
 const templateCache = require('gulp-angular-templatecache');
 const mainBowerFiles = require('gulp-main-bower-files');
 
@@ -29,12 +28,14 @@ gulp.task('css', function(){
             .pipe(gulp.dest('dist'));
 });
 
-gulp.task('libs', function(){
+gulp.task('libs', function(){†
     return gulp.src('./bower.json')
         .pipe(mainBowerFiles())
         .pipe(concat('libs.js'))
         .pipe(gulp.dest('dist'));
 });
+
+
 
 //-------------------------------------------------------------------------
 // Manually Added the Libraries
