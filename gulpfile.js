@@ -30,10 +30,9 @@ gulp.task('css', function(){
 });
 
 gulp.task('libs', function(){
-    return gulp.src('bower.json')
+    return gulp.src('./bower.json')
         .pipe(mainBowerFiles())
         .pipe(concat('libs.js'))
-        // .pipe(uglify())
         .pipe(gulp.dest('dist'));
 });
 
