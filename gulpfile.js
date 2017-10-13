@@ -5,7 +5,7 @@ const gulp = require('gulp');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const templateCache = require('gulp-angular-templatecache');
-
+const mainBowerFiles = require('gulp-main-bower-files');
 
 // gulp.task - Define Tasks
 // Gulp.src -- Point tofiles to use
@@ -30,19 +30,31 @@ gulp.task('css', function(){
 });
 
 gulp.task('libs', function(){
-    gulp.src([
-       'app/bower_components/angular/angular.js',
-       'app/bower_components/angular-route/angular-route.js',
-       'app/bower_components/angular-loader/angular-loader.js',
-       'app/bower_components/jquery/dist/jquery.js',
-        'app/bower_components/bootstrap/dist/js/bootstrap.js',
-       'app/bower_components/underscore/underscore.js',
-        ''
-    ])
+    return gulp.src('bower.json')
+        .pipe(mainBowerFiles())
         .pipe(concat('libs.js'))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest('dist'));
 });
+
+//-------------------------------------------------------------------------
+// Manually Added the Libraries
+
+// gulp.task('libs', function(){
+//     gulp.src([
+//        'app/bower_components/angular/angular.js',
+//        'app/bower_components/angular-route/angular-route.js',
+//        'app/bower_components/angular-loader/angular-loader.js',
+//        'app/bower_components/jquery/dist/jquery.js',
+//         'app/bower_components/bootstrap/dist/js/bootstrap.js',
+//        'app/bower_components/underscore/underscore.js',
+//         ''
+//     ])
+//         .pipe(concat('libs.js'))
+//         .pipe(uglify())
+//         .pipe(gulp.dest('dist'));
+// });
+//-----------------------------------------------------------------------
 
 gulp.task('app', function(){
     gulp.src('app/src/js/**/*.js')

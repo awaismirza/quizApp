@@ -10,6 +10,7 @@ quizApp.constant('AppInformation', {
 quizApp.controller('quizController', ['$scope', function($scope){
     // This is the Main Controller
     $scope.test = "Hello";
+    $scope.what = "yeah";
 }]);
 quizApp.controller('createQuiz', ['$scope', function($scope){
     $scope.getthis = "Hello";
