@@ -19,6 +19,11 @@ gulp.task('copyLibs', function() {
 });
 // -------------------------------------------------------------------
 
+<<<<<<< HEAD
+const concat = require('gulp-concat');
+const templateCache = require('gulp-angular-templatecache');
+const mainBowerFiles = require('gulp-main-bower-files');
+=======
 gulp.task('libs', function () {
    gulp.src('js/*.js')
        .pipe(angularFileSort())
@@ -26,6 +31,7 @@ gulp.task('libs', function () {
        .pipe(uglify())
        .pipe(gulp.dest('app/dist/src'));
 });
+>>>>>>> master
 
 gulp.task('cssLibs', function () {
    return gulp.src('app/src/css/libs/**/*.css')
@@ -67,6 +73,40 @@ gulp.task('appMain', function () {
        .pipe(gulp.dest('app/dist'))
 });
 
+<<<<<<< HEAD
+gulp.task('libs', function(){†
+    return gulp.src('./bower.json')
+        .pipe(mainBowerFiles())
+        .pipe(concat('libs.js'))
+        .pipe(gulp.dest('dist'));
+});
+
+
+
+//-------------------------------------------------------------------------
+// Manually Added the Libraries
+
+// gulp.task('libs', function(){
+//     gulp.src([
+//        'app/bower_components/angular/angular.js',
+//        'app/bower_components/angular-route/angular-route.js',
+//        'app/bower_components/angular-loader/angular-loader.js',
+//        'app/bower_components/jquery/dist/jquery.js',
+//         'app/bower_components/bootstrap/dist/js/bootstrap.js',
+//        'app/bower_components/underscore/underscore.js',
+//         ''
+//     ])
+//         .pipe(concat('libs.js'))
+//         .pipe(uglify())
+//         .pipe(gulp.dest('dist'));
+// });
+//-----------------------------------------------------------------------
+
+gulp.task('app', function(){
+    gulp.src('app/src/js/**/*.js')
+        .pipe(concat('app.js'))
+        .pipe(gulp.dest('dist'));
+=======
 
 
 // This Code is for Index File
@@ -80,6 +120,7 @@ gulp.task('watch', function () {
    gulp.watch('app/src/js/**/*.js', ['appModules']);
    gulp.watch('app/src/css/*.css', ['css']);
    gulp.watch('app/src/templates/**/*.html', ['templates']);
+>>>>>>> master
 });
 
 gulp.task('default', ['appModules','templates','appMain','index','css','watch']);
