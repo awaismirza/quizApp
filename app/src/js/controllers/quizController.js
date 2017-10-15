@@ -1,4 +1,6 @@
-angular.module('quizApp').controller('quizController', function ($scope) {
-    $scope.test = "What the fuck is this";
-    $scope.app = "what is this";
-});
+angular.module('quizApp').controller('quizController', ['$scope','Quiz',function (
+    $scope,
+    Quiz
+) {
+
+}]);

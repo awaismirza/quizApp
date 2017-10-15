@@ -39,8 +39,8 @@ gulp.task('images', function () {
 
 gulp.task('appModules', function(){
     return gulp.src('app/src/js/**/*.js')
-        .pipe(angularFileSort())
         .pipe(ngAnnotate())
+        .pipe(angularFileSort())
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest('app/dist/src'));
 });
