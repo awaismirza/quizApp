@@ -6,6 +6,3 @@ tmp
 .DS_Store
 .idea
 dist/
-app/src/js/filers/
-app/src/js/modals/
-app/src/js/services/
