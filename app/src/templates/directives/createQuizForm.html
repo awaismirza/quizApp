@@ -1,22 +1,24 @@
+<form name="new_quiz" ng-submit="createQuiz(new_quiz.$valid);">
 <div class="container-fluid">
     <div class="flex-md-column-row">
-            <div class="form-group">
-                <input type="number" ng-model="potentialQuiz.title" class="form-control" placeholder="Enter Title">
-            </div>
         <div class="form-group">
-                    <input type="text" ng-model="potentialQuiz.author" class="form-control"  placeholder="Author">
-            </div>
-        <div class="form-group">
-            <input type="text" ng-model="potentialQuiz.quizname" class="form-control"  placeholder="Quiz Name">
+            <input type="text" ng-model="potentialQuiz.title" class="form-control" placeholder="Enter Title">
         </div>
         <div class="form-group">
-            <input type="number" ng-model="potentialQuiz.question" class="form-control"  placeholder="Questions">
+            <input type="text" ng-model="potentialQuiz.author" class="form-control" placeholder="Author">
         </div>
         <div class="form-group">
-            <input type="number" ng-model="potentialQuiz.choices" class="form-control"  placeholder="Choices">
+            <input type="text" ng-model="potentialQuiz.quizname" class="form-control" placeholder="Quiz Name">
         </div>
         <div class="form-group">
-            <input type="button" class="btn btn-primary" ng-click="createQuiz()" value="Create"/>
+            <input type="number" ng-model="potentialQuiz.question" class="form-control" placeholder="Questions">
+        </div>
+        <div class="form-group">
+            <input type="number" ng-model="potentialQuiz.choices" class="form-control" placeholder="Choices">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Create New"/>
         </div>
     </div>
 </div>
+</form>

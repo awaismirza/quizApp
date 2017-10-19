@@ -3,8 +3,8 @@ angular.module('quizApp').directive('createQuiz', function () {
        restrict: 'E',
        templateUrl: 'app/src/templates/directives/createQuizForm.html',
        controller: function ($scope, Quiz) {
-           $scope.potentialQuiz = new Quiz();
-           $scope.createQuiz = function () {
+           $scope.createQuiz = function (valid) {
+               $scope.potentialQuiz = new Quiz();
                console.log($scope.potentialQuiz);
            }
        }
