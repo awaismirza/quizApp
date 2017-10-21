@@ -1,15 +1,31 @@
 angular.module('quizApp').factory('Quiz', function () {
 
-    var Quiz = function(title,author,quizname,question, choices){
+    var Quiz = function () {
         var self = this;
         this.deep_copy_whitelist = [
-            'title','quizName','author','questions','choices'
+            'quizName', 'author', 'questions', 'choices'
         ];
-        this.title = title;
-        this.author = author;
-        this.quizName = quizname;
-        this.question = question;
-        this.choices = choices;
+
+        this.author = '';
+        this.quizName = '';
+        this.question = '';
+        this.choices = '';
+
+        this.makeQuiz = function (quiz) {
+            self.author = quiz.author;
+            self.quizName = quiz.quizName;
+            self.question = quiz.question;
+            self.choices = quiz.choices;
+        }
+
+
+        // this.createQuestions = function(question, choices){
+        //     for(let i = 0; i < question.length; i++){
+        //         let question {
+        //
+        //         }
+        //     }
+        // }
     };
     return Quiz;
 });

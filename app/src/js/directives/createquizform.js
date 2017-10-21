@@ -1,12 +1,20 @@
-angular.module('quizApp').directive('createQuiz', function () {
-   return {
-       restrict: 'E',
-       templateUrl: 'app/src/templates/directives/createQuizForm.html',
-       controller: function ($scope, Quiz) {
-           $scope.createQuiz = function (valid) {
-               $scope.potentialQuiz = new Quiz();
-               console.log($scope.potentialQuiz);
-           }
-       }
-   }
+angular.module('quizApp').directive('createQuizForm', function () {
+    return {
+        restrict: 'E',
+        scope: '=',
+        templateUrl: 'app/src/templates/directives/createQuizForm.html',
+        controller: function ($scope, Quiz) {
+            $scope.quiz = new Quiz();
+            $scope.createQuiz = function () {
+                console.log($scope.quiz);
+                $scope.showQuestionForm = true;
+                $scope.showQuizForm = false;
+            };
+
+            $scope.createQuestions = function () {
+
+            }
+
+        }
+    }
 });
