@@ -1,7 +1,11 @@
 <div class="container-fluid">
     <div class="flex-md-column-row">
         <div class="form-group">
-            <input type="button" class="btn btn-default" ng-click="addQuestion()" value="Add Question">
+            <input type="button" class="btn btn-primary" ng-click="addQuestion()" ng-value="'Add Question '+ count">
+            <label class="alert-danger" ng-show="!validQuestion">Type All The Fields</label>
+        </div>
+        <div class="form-group">
+            <input type="button" class="btn btn-default" ng-click="printQuestion()" value="Print Question">
         </div>
     </div>
 </div>
