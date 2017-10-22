@@ -22,19 +22,33 @@ angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function ()
     };
 
     var checkValidQuestion = function (question) {
+        let validQuestion = false;
         _.forIn(question, function (value, key) {
             if (value !== "") {
-                console.log(value);
-                return true;
+                validQuestion = true;
             } else {
-                console.log(value);
-                return false;
+                return validQuestion = false;
             }
         });
+        _.forIn(question.choices, function (value, key) {
+            if (value !== "") {
+                validQuestion = true;
+            } else {
+                return validQuestion = false;
+            }
+        });
+        return validQuestion;
     };
 
     var pushQuestionToArray = function (question) {
         questionArray.push(JSON.stringify(question));
+    };
+
+    var addQuestionToQuiz = function (quiz, questions) {
+        let q = quiz;
+        q.question = questions;
+        console.log(q);
+        return q;
     };
 
     var jsonToParse = function () {

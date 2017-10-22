@@ -1,10 +1,13 @@
-angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Question', 'quizHelper', function (
+angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Question', 'quizHelper', 'appMode', function (
     $scope,
     Quiz,
     Question,
-    quizHelper
+    quizHelper,
+    appMode
 ) {
     window.quizAppScope = $scope;
+    $scope.appMode = appMode;
+    $scope.quizMode = appMode.STARTAPP;
 
     $scope.quiz = new Quiz();
     $scope.question = new Question();
@@ -12,6 +15,10 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     $scope.count = 1;
     $scope.questionLimitExceeded = false;
     $scope.validQuestion = true;
+
+    $scope.changeAppMode = function (mode) {
+        $scope.quizMode = mode;
+    };
 
     $scope.addQuiz = function () {
         quizHelper.addQuiz($scope.quiz);
@@ -22,7 +29,7 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
 
     $scope.addQuestion = function () {
         if ($scope.question.answer === 0) {
-            alert("Select the Correct Answer");
+            $scope.validQuestion = false;
             return;
         }
         $scope.validQuestion = quizHelper.checkValidQuestion($scope.question);
@@ -36,6 +43,7 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
             $scope.question = new Question();
         } else {
             $scope.questionLimitExceeded = true;
+            $scope.quizMode = appMode.SUCCESSQUIZ;
         }
     };
 

@@ -1,4 +1,4 @@
-<div class="container-fluid quizForm">
+<div class="container quizForm">
     <div class="flex-md-column-row" ng-hide="questionLimitExceeded">
         <br/>
         <div class="form-group">
@@ -6,11 +6,5 @@
         </div>
         <choice-form></choice-form>
         <add-question-button></add-question-button>
-
-    </div>
-
-    <div class="alert-danger" ng-show="questionLimitExceeded">
-        <label> Quiz Done</label>
-        {{potentialQuestion}}
     </div>
 </div>

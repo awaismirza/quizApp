@@ -6,7 +6,9 @@ config(['$locationProvider', '$routeProvider', function($locationProvider) {
   $locationProvider.hashPrefix('!');
 }]);
 
-quizApp.constant('quizMode', {
-  TAKEQUIZ: '0',
-  CREATEQUIZ: '1'
+quizApp.constant('appMode', {
+    STARTAPP: '0',
+    CREATEQUIZ: '1',
+    SUCCESSQUIZ: '2',
+    TAKEQUIZ: '3'
 });
