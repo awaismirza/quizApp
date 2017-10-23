@@ -1,10 +1,6 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-8" ng-show="quiz.showQuizForm">
+<div ng-show="quiz.showQuizForm">
         <create-quiz-form></create-quiz-form>
-    </div>
-        <div class="col-xs-6" ng-show="quiz.showQuestionForm">
-        <question-form></question-form>
-    </div>
 </div>
+<div ng-show="quiz.showQuestionForm">
+        <question-form></question-form>
 </div>

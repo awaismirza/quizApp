@@ -47,9 +47,14 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
         }
     };
 
+    $scope.buildQuiz = function () {
+        quizHelper.addQuestionToQuiz($scope.quiz);
+        quizHelper.saveQuizToJSON($scope.quiz);
+    };
+
     $scope.printQuestion = function () {
         $scope.potentialQuestion = quizHelper.jsonToParse();
-        console.log($scope.potentialQuestion);
+        console.log($scope.quiz);
     }
 
 }]);

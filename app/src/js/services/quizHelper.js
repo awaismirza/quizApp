@@ -44,15 +44,19 @@ angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function ()
         questionArray.push(JSON.stringify(question));
     };
 
-    var addQuestionToQuiz = function (quiz, questions) {
-        let q = quiz;
-        q.question = questions;
-        console.log(q);
-        return q;
+    var addQuestionToQuiz = function (quiz) {
+        quiz.questions = questionArray;
+        console.log(quiz);
     };
 
     var jsonToParse = function () {
         return questionArray;
+    };
+
+    var saveQuizToJSON = function (quiz) {
+        var data = JSON.stringify(quiz);
+        var blob = new Blob([data], {type: "text/json;charset=utf-8"});
+        saveAs(blob, 'quiz.json');
     };
 
     this.addQuiz = addQuiz;
@@ -60,6 +64,8 @@ angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function ()
     this.checkValidQuestion = checkValidQuestion;
     this.pushQuestionToArray = pushQuestionToArray;
     this.jsonToParse = jsonToParse;
+    this.addQuestionToQuiz = addQuestionToQuiz;
+    this.saveQuizToJSON = saveQuizToJSON;
     this.count = count;
 
 

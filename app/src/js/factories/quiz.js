@@ -3,12 +3,13 @@ angular.module('quizApp').factory('Quiz', function () {
     var Quiz = function () {
         var self = this;
         this.deep_copy_whitelist = [
-            'quizName', 'author', 'questionLength', 'choicesLength'
+            'quizName', 'author', 'questionLength', 'choicesLength', 'questions'
         ];
 
         this.author = '';
         this.quizName = '';
         this.questionLength = '';
+        this.questions = [];
         this.choicesLength = 4;
         this.showQuizForm = true;
         this.showQuestionForm = false;
