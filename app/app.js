@@ -10,5 +10,6 @@ quizApp.constant('appMode', {
     STARTAPP: '0',
     CREATEQUIZ: '1',
     SUCCESSQUIZ: '2',
-    TAKEQUIZ: '3'
+    RESULTQUIZ: '3',
+    TAKEQUIZ: '4'
 });
