@@ -11,8 +11,7 @@ angular.module('quizApp').factory('Quiz', function () {
         this.questionLength = '';
         this.questions = [];
         this.choicesLength = 4;
-        this.showQuizForm = true;
-        this.showQuestionForm = false;
+
 
     };
     return Quiz;
