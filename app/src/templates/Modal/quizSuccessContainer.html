@@ -7,8 +7,11 @@
             </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="choices in quiz.questions.question.choices">
-                    <td>{{choices}}</td>
+            <tr ng-repeat="choices in quiz.questions.question">
+                <td>{{choices.choice1}}</td>
+                <td>{{choices.choice2}}</td>
+                <td>{{choices.choice3}}</td>
+                <td>{{choices.choice4}}</td>
                 </tr>
             </tbody>
         </table>

@@ -21,6 +21,3 @@ quizApp.constant('appMode', {
     TAKEQUIZ: '5'
 });
 
-// angular.element(document).ready(function () {
-//    angular.bootstrap(document, ['quizApp']);
-// });
