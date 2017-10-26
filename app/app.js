@@ -1,5 +1,5 @@
 // Declare app level module which depends on views, and components
-var quizApp = angular.module('quizApp', ['ui.bootstrap',
+var quizApp = angular.module('quizApp', [
   'ngRoute'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider) {
