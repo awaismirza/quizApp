@@ -15,7 +15,12 @@ quizApp.constant('appInformation', {
 quizApp.constant('appMode', {
     STARTAPP: '0',
     CREATEQUIZ: '1',
-    SUCCESSQUIZ: '2',
-    RESULTQUIZ: '3',
-    TAKEQUIZ: '4'
+    ADDQUESTION: '2',
+    SUCCESSQUIZ: '3',
+    RESULTQUIZ: '4',
+    TAKEQUIZ: '5'
 });
+
+// angular.element(document).ready(function () {
+//    angular.bootstrap(document, ['quizApp']);
+// });

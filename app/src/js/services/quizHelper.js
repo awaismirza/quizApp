@@ -1,8 +1,7 @@
 angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function () {
     var self = this;
 
-    var quiz = {};
-    var question = {};
+    this.quiz = {};
     var questionArray = [];
     var count = 0;
 
@@ -41,12 +40,17 @@ angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function ()
     };
 
     var pushQuestionToArray = function (question) {
-        questionArray.push(JSON.stringify(question));
+        questionArray.push(question);
     };
 
     var addQuestionToQuiz = function (quiz) {
-        quiz.questions = questionArray;
-        console.log(quiz);
+        questionArray.forEach(function (choice) {
+           let choices = choice;
+           console.log(choices);
+           quiz.questions.push(choices);
+        });
+        // quiz.questions = JSON.parse(questionArray);
+        // console.log(quiz);
     };
 
     var jsonToParse = function () {

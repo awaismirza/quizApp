@@ -1,10 +1,11 @@
-angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Question', 'quizHelper', 'appMode', 'appInformation', function (
+angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Question', 'quizHelper', 'appMode', 'appInformation', '$timeout' , function (
     $scope,
     Quiz,
     Question,
     quizHelper,
     appMode,
-    appInformation
+    appInformation,
+    $timeout
 ) {
     window.quizAppScope = $scope;
 
@@ -22,8 +23,10 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     $scope.questionLimitExceeded = false;
 
     $scope.validQuestion = true;
-    $scope.showQuizForm = true;
-    $scope.showQuestionForm = false;
+
+    $scope.clearField = function () {
+      $scope.quiz = new Quiz();
+    };
 
     $scope.changeAppMode = function (mode) {
         $scope.quizMode = mode;
@@ -32,18 +35,20 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     $scope.addQuiz = function () {
         quizHelper.addQuiz($scope.quiz);
         console.log($scope.quiz);
-        $scope.showQuestionForm = true;
-        $scope.showQuizForm = false;
+        if(appMode.CREATEQUIZ){
+           $scope.changeAppMode(appMode.ADDQUESTION);
+        }
     };
-
 
     $scope.addQuestion = function () {
         $scope.validQuestion = quizHelper.checkValidQuestion($scope.question);
+        $('#selectionError').text("");
         if (!$scope.validQuestion) {
-            return $("#questionpopover").popover();
+            return ;
         }
         if ($scope.question.answer === 0) {
             $scope.validQuestion = false;
+            $('#selectionError').text("Select Correct Answer");
             return;
         }
 
@@ -53,12 +58,13 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
             $scope.question = new Question();
         } else {
             $scope.questionLimitExceeded = true;
-            $scope.quizMode = appMode.SUCCESSQUIZ;
+            quizHelper.addQuestionToQuiz($scope.quiz);
+            $scope.changeAppMode(appMode.SUCCESSQUIZ);
         }
     };
 
     $scope.buildQuiz = function () {
-        quizHelper.addQuestionToQuiz($scope.quiz);
+        // quizHelper.addQuestionToQuiz($scope.quiz);
         quizHelper.saveQuizToJSON($scope.quiz);
     };
 

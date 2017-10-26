@@ -1,26 +1,17 @@
-<form name="new_quiz" ng-submit="addQuiz(new_quiz.$valid);" novalidate>
+<form name="new_quiz" ng-submit="addQuiz()">
         <div class="form-group">
             <input type="text" name="author" ng-model="quiz.author" class="form-control" placeholder="Author"
-                   required="">
+                   required>
         </div>
-    <div ng-show="new_quiz.$submitted || new_quiz.author.$touched">
-        <div ng-show="new_quiz.author.$error.required">Tell us your name.</div>
-    </div>
         <div class="form-group">
             <input type="text" name="quizname" ng-model="quiz.quizName" class="form-control" placeholder="Quiz Name"
-                   required="">
+                   required>
         </div>
-    <div ng-show="new_quiz.$submitted || new_quiz.quizname.$touched">
-        <div ng-show="new_quiz.quizname.$error.required">Type Quiz Name</div>
-    </div>
         <div class="form-group">
             <input type="number" ng-model="quiz.questionLength" class="form-control" min="1" placeholder="Questions"
-                   required="">
+                   required>
         </div>
-    <div ng-show="new_quiz.$submitted || new_quiz.questions.$touched">
-        <div ng-show="new_quiz.questions.$error.required">Type the Question Length</div>
-    </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Create New" ng-disabled="$dirty"/>
+            <input type="submit" class="btn btn-primary" value="Create New"/>
         </div>
 </form>

@@ -3,7 +3,7 @@
 
         <input type="button" class="btn btn-default" ng-click="changeAppMode(appMode.STARTAPP)"
                ng-value="appInformation.appName"/>
-        <input type="button" class="btn btn-default" ng-click="changeAppMode(appMode.CREATEQUIZ)" value="Create Quiz"/>
+        <input type="button" class="btn btn-default" ng-click="changeAppMode(appMode.CREATEQUIZ); clearField();" value="Create Quiz"/>
         <input type="button" class="btn btn-default" href="#" value="Take Quiz"/>
     </div>
 </nav>
