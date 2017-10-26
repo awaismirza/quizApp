@@ -1,20 +1,29 @@
-angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Question', 'quizHelper', 'appMode', function (
+angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Question', 'quizHelper', 'appMode', 'appInformation', function (
     $scope,
     Quiz,
     Question,
     quizHelper,
-    appMode
+    appMode,
+    appInformation
 ) {
     window.quizAppScope = $scope;
+
+
     $scope.appMode = appMode;
+    $scope.appInformation = appInformation;
+
     $scope.quizMode = appMode.STARTAPP;
+
 
     $scope.quiz = new Quiz();
     $scope.question = new Question();
     $scope.potentialQuestion = null;
     $scope.count = 1;
     $scope.questionLimitExceeded = false;
+
     $scope.validQuestion = true;
+    $scope.showQuizForm = true;
+    $scope.showQuestionForm = false;
 
     $scope.changeAppMode = function (mode) {
         $scope.quizMode = mode;
@@ -23,17 +32,18 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     $scope.addQuiz = function () {
         quizHelper.addQuiz($scope.quiz);
         console.log($scope.quiz);
-        $scope.quiz.showQuestionForm = true;
-        $scope.quiz.showQuizForm = false;
+        $scope.showQuestionForm = true;
+        $scope.showQuizForm = false;
     };
 
+
     $scope.addQuestion = function () {
-        if ($scope.question.answer === 0) {
-            $scope.validQuestion = false;
-            return;
-        }
         $scope.validQuestion = quizHelper.checkValidQuestion($scope.question);
         if (!$scope.validQuestion) {
+            return $("#questionpopover").popover();
+        }
+        if ($scope.question.answer === 0) {
+            $scope.validQuestion = false;
             return;
         }
 

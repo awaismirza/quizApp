@@ -1,3 +1,4 @@
+<form name="questionForm">
 <div class="container">
     <div class="row">
         <div class="form-group col-md-8">
@@ -15,14 +16,15 @@
                    class="btn btn-primary" ng-value="'Correct'">
         </div>
         <div class="form-group col-md-8">
-            <input type="text" class="form-control" ng-model="question.choices.choice3" placeholder="Choice3">
+            <input type="text" class="form-control" ng-model="question.choices.choice3" placeholder="Choice3" required>
         </div>
         <div class="form-group col-md-2 pull-right">
             <input type="button" ng-click="question.answer = 3" ng-hide="question.answer != 3 && question.answer != 0"
                    class="btn btn-primary" ng-value="'Correct'">
         </div>
         <div class="form-group col-md-8">
-            <input type="text" class="form-control" ng-model="question.choices.choice4" placeholder="Choice4">
+            <input type="text" class="form-control" name="choice4" ng-model="question.choices.choice4"
+                   placeholder="Choice4">
         </div>
         <div class="form-group col-md-2 pull-right">
             <input type="button" ng-click="question.answer = 4" ng-hide="question.answer != 4 && question.answer != 0"
@@ -30,3 +32,4 @@
         </div>
     </div>
 </div>
+</form>
