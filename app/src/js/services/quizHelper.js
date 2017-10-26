@@ -11,7 +11,7 @@ angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function ()
 
     var sendQuestion = function (question) {
         self.question = question;
-        if (count < self.quiz.questionLength) {
+        if (count <= self.quiz.questionLength) {
             pushQuestionToArray(self.question);
             count++;
         } else {

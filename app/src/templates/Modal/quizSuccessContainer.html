@@ -1,21 +1,18 @@
 <div class="text-lg-center">
     <div class="container-fluid">
-        <table class="table table-dark">
-            <thead ng-repeat="question in quiz.questions">
+        <table class="table table-dark" ng-repeat="question in quiz.questions">
+            <thead>
             <tr>
-                <th scope="col">{{question.question}}</th>
+                <th scope="col">Question: {{question.question}}</th>
             </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="choices in quiz.questions.question.choices">
-                    <td>{{choices}}</td>
+            <tr ng-repeat="choices in question.choices">
+                <td><h3>Choice:</h3> {{choices}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
-
-
-
     <label> You've done a very good job! Now we will have Biryani tonight</label>
     <div class="form-group">
         <input type="button" class="btn btn-default" ng-click="buildQuiz()" value="Save Quiz">

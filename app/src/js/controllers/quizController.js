@@ -26,6 +26,7 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
 
     $scope.clearField = function () {
       $scope.quiz = new Quiz();
+        $scope.question = new Question();
     };
 
     $scope.changeAppMode = function (mode) {
