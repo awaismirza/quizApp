@@ -1,4 +1,4 @@
-angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Question', 'quizHelper', 'appMode', 'appInformation', '$timeout', 'takeQuizMode', function (
+angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Question', 'quizHelper', 'appMode', 'appInformation', '$timeout', 'takeQuizMode', '$window', function (
     $scope,
     Quiz,
     Question,
@@ -6,7 +6,8 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     appMode,
     appInformation,
     takeQuizMode,
-    $timeout
+    $timeout,
+    $window
 ) {
     window.quizAppScope = $scope;
 
@@ -76,6 +77,19 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     $scope.printQuestion = function () {
         $scope.potentialQuestion = quizHelper.jsonToParse();
         console.log($scope.quiz);
-    }
+    };
+
+    $scope.openQuizToTake = function () {
+        $('#open-file').click().change(function (data) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                quizHelper.loadQuiz(reader.result);
+            };
+            reader.readAsText(data.target.files[0], "text/json;charset=utf-8");
+        });
+
+    };
+
+
 
 }]);

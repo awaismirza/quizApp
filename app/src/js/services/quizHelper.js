@@ -1,4 +1,5 @@
-angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function () {
+angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function (Quiz,
+                                                                               Question) {
     var self = this;
 
     this.quiz = {};
@@ -49,8 +50,6 @@ angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function ()
            console.log(choices);
            quiz.questions.push(choices);
         });
-        // quiz.questions = JSON.parse(questionArray);
-        // console.log(quiz);
     };
 
     var jsonToParse = function () {
@@ -63,6 +62,17 @@ angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function ()
         saveAs(blob, 'quiz.json');
     };
 
+    var loadQuiz = function (quiz) {
+        quizAppScope.quiz = new Quiz();
+        quizAppScope.quiz = JSON.parse(quiz);
+        console.log(quizAppScope.quiz);
+    };
+
+    var startQuiz = function (quiz) {
+
+    };
+
+
     this.addQuiz = addQuiz;
     this.sendQuestion = sendQuestion;
     this.checkValidQuestion = checkValidQuestion;
@@ -70,8 +80,7 @@ angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function ()
     this.jsonToParse = jsonToParse;
     this.addQuestionToQuiz = addQuestionToQuiz;
     this.saveQuizToJSON = saveQuizToJSON;
-    this.count = count;
-    this.openQuiz = openQuiz;
-
+    this.loadQuiz = loadQuiz;
+    this.startQuiz = startQuiz;
 
 }]);
