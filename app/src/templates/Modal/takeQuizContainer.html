@@ -1,10 +1,13 @@
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12" ng-hide="quizLoaded">
             <open-quiz></open-quiz>
         </div>
-        <div class="col-12">
-
+        <div class="col-12" ng-show="quizLoaded">
+            <input type="button" class="btn btn-primary" value="Start Quiz"/>
+        </div>
+        <div class="col-12" ng-show="startQuiz">
+            <loaded-quiz></loaded-quiz>
         </div>
     </div>
 </div>

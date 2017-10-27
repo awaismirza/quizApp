@@ -18,6 +18,8 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     $scope.appInformation = appInformation;
 
     $scope.quizMode = appMode.STARTAPP;
+    $scope.quizLoaded = false;
+    $scope.startQuiz = false;
 
 
     $scope.quiz = new Quiz();
@@ -84,12 +86,12 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
             var reader = new FileReader();
             reader.onload = function () {
                 quizHelper.loadQuiz(reader.result);
+                $scope.quizLoaded = true;
             };
             reader.readAsText(data.target.files[0], "text/json;charset=utf-8");
         });
 
     };
-
 
 
 }]);

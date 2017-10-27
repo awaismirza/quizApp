@@ -65,7 +65,6 @@ angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function (Q
     var loadQuiz = function (quiz) {
         quizAppScope.quiz = new Quiz();
         quizAppScope.quiz = JSON.parse(quiz);
-        console.log(quizAppScope.quiz);
     };
 
     var startQuiz = function (quiz) {
