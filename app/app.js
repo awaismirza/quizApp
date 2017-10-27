@@ -21,3 +21,9 @@ quizApp.constant('appMode', {
     TAKEQUIZ: '5'
 });
 
+quizApp.constant('takeQuizMode', {
+    SELECTQUIZ: '6',
+    TAKEQUESTION: '7',
+    SHOWRESULTS: '8'
+});
+

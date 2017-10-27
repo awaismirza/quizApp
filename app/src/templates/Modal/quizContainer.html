@@ -1,5 +1,4 @@
 <div class="quizcontainer">
-
     <div ng-show="quizMode == appMode.CREATEQUIZ">
         <create-quiz-form></create-quiz-form>
     </div>
@@ -8,5 +7,8 @@
     </div>
     <div ng-show="quizMode == appMode.SUCCESSQUIZ">
         <quiz-success-container></quiz-success-container>
+    </div>
+    <div ng-show="quizMode == appMode.TAKEQUIZ">
+        <take-quiz-container></take-quiz-container>
     </div>
 </div>

@@ -1,16 +1,19 @@
-angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Question', 'quizHelper', 'appMode', 'appInformation', '$timeout' , function (
+angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Question', 'quizHelper', 'appMode', 'appInformation', '$timeout', 'takeQuizMode', function (
     $scope,
     Quiz,
     Question,
     quizHelper,
     appMode,
     appInformation,
+    takeQuizMode,
     $timeout
 ) {
     window.quizAppScope = $scope;
 
 
     $scope.appMode = appMode;
+    $scope.takeQuizMode = takeQuizMode;
+
     $scope.appInformation = appInformation;
 
     $scope.quizMode = appMode.STARTAPP;
@@ -68,6 +71,7 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
         // quizHelper.addQuestionToQuiz($scope.quiz);
         quizHelper.saveQuizToJSON($scope.quiz);
     };
+
 
     $scope.printQuestion = function () {
         $scope.potentialQuestion = quizHelper.jsonToParse();

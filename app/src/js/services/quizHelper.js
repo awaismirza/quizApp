@@ -71,6 +71,7 @@ angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function ()
     this.addQuestionToQuiz = addQuestionToQuiz;
     this.saveQuizToJSON = saveQuizToJSON;
     this.count = count;
+    this.openQuiz = openQuiz;
 
 
 }]);
