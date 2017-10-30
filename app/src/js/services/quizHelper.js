@@ -65,9 +65,9 @@ angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function (Q
     var loadQuiz = function (quiz) {
         quizAppScope.quiz = new Quiz();
         quizAppScope.quiz = JSON.parse(quiz);
-    };
-
-    var startQuiz = function (quiz) {
+        if (quizAppScope.quiz.quizName !== "") {
+            quizAppScope.quizLoaded = true;
+        }
 
     };
 
@@ -80,6 +80,5 @@ angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function (Q
     this.addQuestionToQuiz = addQuestionToQuiz;
     this.saveQuizToJSON = saveQuizToJSON;
     this.loadQuiz = loadQuiz;
-    this.startQuiz = startQuiz;
 
 }]);
