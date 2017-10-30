@@ -3,7 +3,7 @@
         <div class="col-12" ng-show="!quizLoaded">
             <open-quiz></open-quiz>
         </div>
-        <div class="col-12" ng-show="quizLoaded">
+        <div class="col-12" ng-show="quizLoaded && !startQuiz">
             <input type="button" class="btn btn-primary" value="Start Quiz" ng-click="letStartQuiz()"/>
             <hr>
             <div class="container">
@@ -22,5 +22,41 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-12" ng-show="startQuiz">
+            <div class="alert alert-primary" role="alert">{{potentialQuestion[count].question}}</div>
+            <hr/>
+            <div class="row">
+                <div class="col-6">
+                    <input type="button" class="btn btn-primary btn-block" role="alert"
+                           ng-value="potentialQuestion[count].choices.choice1"/>
+                </div>
+                <div class="col-6">
+                    <input type="button" class="btn btn-primary btn-block" role="alert"
+                           ng-value="potentialQuestion[count].choices.choice2"/>
+                </div>
+
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-6">
+                    <input type="button" class="btn btn-primary btn-block" role="alert"
+                           ng-value="potentialQuestion[count].choices.choice3"/>
+                </div>
+                <div class="col-6">
+                    <input type="button" class="btn btn-primary btn-block" role="alert"
+                           ng-value="potentialQuestion[count].choices.choice4"/>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-3">
+                    <input type="button" class="btn btn-dark btn-block" ng-click="nextQuestion()"
+                           value="Next Question"/>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </div>

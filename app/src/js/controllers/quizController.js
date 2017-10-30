@@ -26,10 +26,14 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     $scope.quiz = new Quiz();
     $scope.question = new Question();
     $scope.potentialQuestion = null;
-    $scope.count = 1;
+    $scope.count = 0;
     $scope.questionLimitExceeded = false;
 
     $scope.validQuestion = true;
+
+    $scope.currentQuestion = null;
+    $scope.correctAnswers = [];
+
 
     $scope.clearField = function () {
       $scope.quiz = new Quiz();
@@ -102,7 +106,15 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
 
 
     $scope.letStartQuiz = function () {
+        $scope.startQuiz = true;
+        if ($scope.startQuiz) {
+            $scope.potentialQuestion = $scope.quiz.questions;
+        }
+    };
 
+    $scope.nextQuestion = function () {
+        $scope.count++;
     }
+
 
 }]);
