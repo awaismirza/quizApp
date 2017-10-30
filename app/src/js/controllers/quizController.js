@@ -37,6 +37,8 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     };
 
     $scope.changeAppMode = function (mode) {
+        $scope.quiz = new Quiz();
+        $scope.question = new Question();
         $scope.quizMode = mode;
     };
 
@@ -72,7 +74,6 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     };
 
     $scope.buildQuiz = function () {
-        // quizHelper.addQuestionToQuiz($scope.quiz);
         quizHelper.saveQuizToJSON($scope.quiz);
     };
 
@@ -91,6 +92,7 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
                 if ($scope.quiz.quizName !== "") {
                     $scope.quizLoaded = true;
                     $scope.$digest();
+                    console.log($scope.quiz);
                 }
             };
             reader.readAsText(data.target.files[0], "text/json;charset=utf-8");

@@ -5,6 +5,22 @@
         </div>
         <div class="col-12" ng-show="quizLoaded">
             <input type="button" class="btn btn-primary" value="Start Quiz" ng-click="letStartQuiz()"/>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-primary" role="alert">
+                            Author: {{quiz.author}}
+                        </div>
+                        <div class="alert alert-primary" role="alert">
+                            Quiz Name: {{quiz.quizName}}
+                        </div>
+                        <div class="alert alert-primary" role="alert">
+                            Questions: {{quiz.questionLength}}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
