@@ -1,0 +1,54 @@
+<form name="questionForm" ng-submit="addQuestion()">
+<div class="container">
+    <div class="row">
+        <div class="form-group col-md-12">
+            <input type="text" ng-model="question.question" class="form-control" placeholder="Type Question" required="Type Question">
+        </div>
+        <div class="form-group col-md-8">
+            <input type="text" class="form-control" ng-model="question.choices.choice1" placeholder="Choice1" required="Type Choice 1">
+        </div>
+        <div class="form-group col-md-2 pull-right">
+            <input type="button" ng-click="question.answer = question.choices.choice1"
+                   ng-hide="question.answer != question.choices.choice1 && question.answer != ''"
+                   class="btn btn-primary" ng-value="'Correct'">
+        </div>
+        <div class="form-group col-md-8">
+            <input type="text" class="form-control" ng-model="question.choices.choice2" placeholder="Choice2" required="Type Choice 2">
+        </div>
+        <div class="form-group col-md-2 pull-right">
+            <input type="button" ng-click="question.answer = question.choices.choice2"
+                   ng-hide="question.answer != question.choices.choice2 && question.answer != ''"
+                   class="btn btn-primary" ng-value="'Correct'">
+        </div>
+        <div class="form-group col-md-8">
+            <input type="text" class="form-control" ng-model="question.choices.choice3" placeholder="Choice3" required="Type Choice 3">
+        </div>
+        <div class="form-group col-md-2 pull-right">
+            <input type="button" ng-click="question.answer = question.choices.choice3"
+                   ng-hide="question.answer != question.choices.choice3 && question.answer != ''"
+                   class="btn btn-primary" ng-value="'Correct'">
+        </div>
+        <div class="form-group col-md-8">
+            <input type="text" class="form-control" ng-model="question.choices.choice4" placeholder="Choice4" required="Type Choice 4">
+        </div>
+        <div class="form-group col-md-2 pull-right">
+            <input type="button" ng-click="question.answer = question.choices.choice4"
+                   ng-hide="question.answer != question.choices.choice4 && question.answer != ''"
+                   class="btn btn-primary" ng-value="'Correct'">
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="form-group pull-left">
+            <input type="submit" class="btn btn-primary" ng-value="'Add Question '+count"/>
+        </div>
+        <div class="label label-danger" id="selectionError">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <input type="button" class="btn btn-default" ng-click="printQuestion()" value="Print Question">
+        </div>
+    </div>
+</div>
+</form>

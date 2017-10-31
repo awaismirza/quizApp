@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" ng-show="!quizLoaded && !questionLimitExceeded">
+            <open-quiz></open-quiz>
+        </div>
+        <div class="col-12" ng-show="quizLoaded && !startQuiz">
+            <input type="button" class="btn btn-primary" value="Start Quiz" ng-click="letStartQuiz()"/>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-primary" role="alert">
+                            Author: {{quiz.author}}
+                        </div>
+                        <div class="alert alert-primary" role="alert">
+                            Quiz Name: {{quiz.quizName}}
+                        </div>
+                        <div class="alert alert-primary" role="alert">
+                            Questions: {{quiz.questionLength}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12" ng-show="startQuiz && !questionLimitExceeded">
+            <div class="alert alert-primary" role="alert">{{potentialQuestion[count].question}}</div>
+            <hr/>
+            <div class="row">
+                <div class="col-6">
+                    <input type="button" class="btn btn-primary btn-block" role="alert"
+                           ng-click="checkAnswer(potentialQuestion[count].choices.choice1);"
+                           ng-disabled="questionAnswered"
+                           ng-value="potentialQuestion[count].choices.choice1"/>
+                </div>
+                <div class="col-6">
+                    <input type="button" class="btn btn-primary btn-block" role="alert"
+                           ng-click="checkAnswer(potentialQuestion[count].choices.choice2);"
+                           ng-disabled="questionAnswered"
+                           ng-value="potentialQuestion[count].choices.choice2"/>
+                </div>
+
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-6">
+                    <input type="button" class="btn btn-primary btn-block" role="alert"
+                           ng-click="checkAnswer(potentialQuestion[count].choices.choice3);"
+                           ng-disabled="questionAnswered"
+                           ng-value="potentialQuestion[count].choices.choice3"/>
+                </div>
+                <div class="col-6">
+                    <input type="button" class="btn btn-primary btn-block" role="alert"
+                           ng-click="checkAnswer(potentialQuestion[count].choices.choice4);"
+                           ng-disabled="questionAnswered"
+                           ng-value="potentialQuestion[count].choices.choice4"/>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-3">
+                    <input type="button" class="btn btn-dark btn-block" ng-click="nextQuestion()"
+                           ng-disabled="!questionAnswered"
+                           value="Next Question"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12" ng-show="questionLimitExceeded">
+            Quiz Result
+            <div class="row" ng-repeat="result in potentialQuestion">
+                <div class="col-12">
+                    <div class="alert alert-primary" role="alert">
+                        Questions: {{result.question}}
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="col-12">
+                        <div class="alert alert-info" role="alert">
+                            Correct Answer: {{result.answer}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="col-12">
+                        <div class="alert alert-info" role="alert">
+                            Your Answer: {{result.selectedAnswer}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <div class="col-12">
+                        <span class="badge badge-danger" ng-show="!result.result">Wrong</span>
+                        <span class="badge badge-success" ng-show="result.result">Correct</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <input type="button" class="btn btn-danger btn-block" value="Restart App" ng-click="restartApp()"/>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.quizcontainer {
+    width: 100%;
+    height: 600px;
+    padding: 60px;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    display: block;
+}
+
+.navbar navbar-expand-lg navbar-light bg-light {
+    background-color: #1d2124;
+}
+
+.btn-default:hover {
+    color: #fafafa;
+    font-style: italic;
+    font-size: large;
+    background-color: #1b6d85;
+    transition: all .25s ease-in-out;
+}
+
+.btn-default {
+    margin: 0 5px 0 5px;
+}
