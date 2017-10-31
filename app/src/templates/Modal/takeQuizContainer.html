@@ -23,16 +23,18 @@
             </div>
         </div>
 
-        <div class="col-12" ng-show="startQuiz">
+        <div class="col-12" ng-show="startQuiz && !questionLimitExceeded">
             <div class="alert alert-primary" role="alert">{{potentialQuestion[count].question}}</div>
             <hr/>
             <div class="row">
                 <div class="col-6">
                     <input type="button" class="btn btn-primary btn-block" role="alert"
+                           ng-click="checkAnswer(potentialQuestion[count].choices.choice1);"
                            ng-value="potentialQuestion[count].choices.choice1"/>
                 </div>
                 <div class="col-6">
                     <input type="button" class="btn btn-primary btn-block" role="alert"
+                           ng-click="checkAnswer(potentialQuestion[count].choices.choice2);"
                            ng-value="potentialQuestion[count].choices.choice2"/>
                 </div>
 
@@ -41,10 +43,12 @@
             <div class="row">
                 <div class="col-6">
                     <input type="button" class="btn btn-primary btn-block" role="alert"
+                           ng-click="checkAnswer(potentialQuestion[count].choices.choice3);"
                            ng-value="potentialQuestion[count].choices.choice3"/>
                 </div>
                 <div class="col-6">
                     <input type="button" class="btn btn-primary btn-block" role="alert"
+                           ng-click="checkAnswer(potentialQuestion[count].choices.choice4);"
                            ng-value="potentialQuestion[count].choices.choice4"/>
                 </div>
             </div>
@@ -57,6 +61,12 @@
             </div>
         </div>
 
+        <div class="col-12" ng-show="questionLimitExceeded">
+            Quiz Result
 
+            <div class="col-12">
+                <input type="button" class="btn btn-danger btn-block" value="Restart App" ng-click="restartApp()"/>
+            </div>
+        </div>
     </div>
 </div>

@@ -9,7 +9,7 @@ angular.module('quizApp').factory('Question', function () {
             choice3: "",
             choice4: ""
         };
-        this.answer = 0;
+        this.answer = "";
     };
     return Question;
 });

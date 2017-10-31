@@ -8,7 +8,8 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     takeQuizMode,
     $timeout,
     $window,
-    $q
+    $q,
+    $location
 ) {
     window.quizAppScope = $scope;
 
@@ -44,6 +45,7 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
         $scope.quiz = new Quiz();
         $scope.question = new Question();
         $scope.quizMode = mode;
+        $scope.quizLoaded = false;
     };
 
     $scope.addQuiz = function () {
@@ -112,9 +114,21 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
         }
     };
 
+    $scope.checkAnswer = function (answer) {
+
+    };
+
+
+
     $scope.nextQuestion = function () {
-        $scope.count++;
-    }
+        if ($scope.count < $scope.potentialQuestion.length - 1) {
+            $scope.count++;
+        } else {
+            $scope.questionLimitExceeded = true;
+        }
+    };
 
-
+    $scope.restartApp = function () {
+        $window.location.reload();
+    };
 }]);
