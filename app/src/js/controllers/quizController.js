@@ -28,12 +28,14 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     $scope.question = new Question();
     $scope.potentialQuestion = null;
     $scope.count = 0;
+    $scope.countQuestion = 0;
     $scope.questionLimitExceeded = false;
 
     $scope.validQuestion = true;
 
     $scope.currentQuestion = null;
     $scope.correctAnswers = [];
+    $scope.questionAnswered = false;
 
 
     $scope.clearField = function () {
@@ -69,8 +71,8 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
         }
 
         quizHelper.sendQuestion($scope.question);
-        if ($scope.count < $scope.quiz.questionLength && $scope.question.answer !== 0) {
-            $scope.count++;
+        if ($scope.countQuestion < $scope.quiz.questionLength) {
+            $scope.countQuestion++;
             $scope.question = new Question();
         } else {
             $scope.questionLimitExceeded = true;
@@ -115,7 +117,15 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     };
 
     $scope.checkAnswer = function (answer) {
-
+        var correctAnswer = $scope.potentialQuestion[$scope.count].answer;
+        if (answer == correctAnswer) {
+            $scope.potentialQuestion[$scope.count].result = true;
+            $scope.potentialQuestion[$scope.count].selectedAnswer = answer;
+        } else {
+            $scope.potentialQuestion[$scope.count].result = false;
+            $scope.potentialQuestion[$scope.count].selectedAnswer = answer;
+        }
+        $scope.questionAnswered = true;
     };
 
 
@@ -123,6 +133,7 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     $scope.nextQuestion = function () {
         if ($scope.count < $scope.potentialQuestion.length - 1) {
             $scope.count++;
+            $scope.questionAnswered = false;
         } else {
             $scope.questionLimitExceeded = true;
         }

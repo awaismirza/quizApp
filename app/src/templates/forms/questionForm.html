@@ -9,7 +9,7 @@
         </div>
         <div class="form-group col-md-2 pull-right">
             <input type="button" ng-click="question.answer = question.choices.choice1"
-                   ng-hide="question.answer != 1 && question.answer != 0"
+                   ng-hide="question.answer != question.choices.choice1 && question.answer != ''"
                    class="btn btn-primary" ng-value="'Correct'">
         </div>
         <div class="form-group col-md-8">
@@ -17,7 +17,7 @@
         </div>
         <div class="form-group col-md-2 pull-right">
             <input type="button" ng-click="question.answer = question.choices.choice2"
-                   ng-hide="question.answer != 2 && question.answer != 0"
+                   ng-hide="question.answer != question.choices.choice2 && question.answer != ''"
                    class="btn btn-primary" ng-value="'Correct'">
         </div>
         <div class="form-group col-md-8">
@@ -25,7 +25,7 @@
         </div>
         <div class="form-group col-md-2 pull-right">
             <input type="button" ng-click="question.answer = question.choices.choice3"
-                   ng-hide="question.answer != 3 && question.answer != 0"
+                   ng-hide="question.answer != question.choices.choice3 && question.answer != ''"
                    class="btn btn-primary" ng-value="'Correct'">
         </div>
         <div class="form-group col-md-8">
@@ -33,7 +33,7 @@
         </div>
         <div class="form-group col-md-2 pull-right">
             <input type="button" ng-click="question.answer = question.choices.choice4"
-                   ng-hide="question.answer != 4 && question.answer != 0"
+                   ng-hide="question.answer != question.choices.choice4 && question.answer != ''"
                    class="btn btn-primary" ng-value="'Correct'">
         </div>
 
