@@ -29,7 +29,7 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     $scope.question = new Question();
     $scope.potentialQuestion = null;
     $scope.count = 0;
-    $scope.countQuestion = 0;
+    $scope.countQuestion = 1;
     $scope.questionLimitExceeded = false;
 
     $scope.validQuestion = true;
@@ -45,6 +45,7 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     };
 
     $scope.changeAppMode = function (mode) {
+        $scope.quiz = new Quiz();
         $scope.question = new Question();
         $scope.quizMode = mode;
         $scope.quizLoaded = false;
