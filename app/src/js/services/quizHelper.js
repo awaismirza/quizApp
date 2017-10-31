@@ -16,7 +16,6 @@ angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function (Q
             pushQuestionToArray(self.question);
             count++;
         } else {
-            console.log(questionArray);
             alert("Question Limit Exceeded");
         }
     };
@@ -47,7 +46,6 @@ angular.module('quizApp').service('quizHelper', ['Question', 'Quiz', function (Q
     var addQuestionToQuiz = function (quiz) {
         questionArray.forEach(function (choice) {
            let choices = choice;
-           console.log(choices);
            quiz.questions.push(choices);
         });
     };
