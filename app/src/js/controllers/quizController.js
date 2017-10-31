@@ -1,4 +1,4 @@
-angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Question', 'quizHelper', 'appMode', 'appInformation', '$timeout', 'takeQuizMode', '$window', '$q', function (
+angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Question', 'quizHelper', 'appMode', 'appInformation', '$timeout', 'takeQuizMode', '$window', '$q', '$animate', function (
     $scope,
     Quiz,
     Question,
@@ -9,7 +9,8 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     $timeout,
     $window,
     $q,
-    $location
+    $location,
+    $animate
 ) {
     window.quizAppScope = $scope;
 
@@ -44,7 +45,6 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     };
 
     $scope.changeAppMode = function (mode) {
-        $scope.quiz = new Quiz();
         $scope.question = new Question();
         $scope.quizMode = mode;
         $scope.quizLoaded = false;

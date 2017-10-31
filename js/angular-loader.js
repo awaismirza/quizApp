@@ -5,9 +5,11 @@
  */
 
 (function() {'use strict';
+
     function isFunction(value) {
         return typeof value === 'function';
-    }
+    };
+
     /* global toDebugString: true */
 
 function serializeObject(obj) {

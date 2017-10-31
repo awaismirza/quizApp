@@ -8,7 +8,7 @@ angular.module('quizApp').factory('Quiz', function () {
 
         this.author = '';
         this.quizName = '';
-        this.questionLength = 0;
+        this.questionLength = '';
         this.questions = [];
         this.choicesLength = 4;
 
