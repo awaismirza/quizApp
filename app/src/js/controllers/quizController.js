@@ -45,7 +45,6 @@ angular.module('quizApp').controller('quizController', ['$scope', 'Quiz', 'Quest
     };
 
     $scope.changeAppMode = function (mode) {
-        $scope.quiz = new Quiz();
         $scope.question = new Question();
         $scope.quizMode = mode;
         $scope.quizLoaded = false;
