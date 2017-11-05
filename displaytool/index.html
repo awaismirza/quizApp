@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Optergy Display Tool</title>
+    <link rel="stylesheet" type="text/css" href="dist/style.min.css">
+    <script src="dist/libs.min.js"></script>
+    <script src="dist/app.min.js"></script>
+    <script src="dist/template.js"></script>
+</head>
+
+<body ng-controller="GraphController">
+<div class="display-container">
+    <!-- Top bar -->
+    <div class="top-bar not-selectable" id="top-bar">
+        <div id="toolbars" ng-include="'templates/toolbars.html'"></div>
+    </div>
+
+    <!-- Side bar -->
+    <div class="side-bar not-selectable" id="side-bar" ng-include="'templates/sidebar.html'"></div>
+
+    <!-- View port for the browser -->
+    <div class="display-wrapper" id="display-wrapper">
+        <!-- Larger than view port for the browser. Is the actual display that
+    points etc. live on -->
+        <div ng-class="{'display pan-mode' : !marqueeMode, 'display marquee-mode' : marqueeMode}" id="display" ng-mousemove="updateSelection($event)"
+             ng-mousedown="startSelecting($event)" ng-mouseup="stopSelecting($event)" ng-style="workspaceBackground()" zoom-on-scroll>
+            <div id="resolution-square" ng-style="{
+                 'visibility': resolutionOutline.isShowResolutionOutline ? 'visible' : 'hidden',
+                 'width': resolutionOutline.selectedResolution.width + 'px',
+                 'height': resolutionOutline.selectedResolution.height + 'px',
+                 'border-right': '2px dashed #555',
+                 'border-bottom': '2px dashed #555',
+                 'pointer-events': 'none',
+                 }"></div>
+            <point class="w" id="{{::point.id}}" ng-attr-style="{{point.style()}}" bind="point" ng-repeat="point in points track by point.id"
+                   ng-class="{selected: point.selected}">
+            </point>
+        </div>
+        <div id="spectrum-overlay-display" ng-hide="!drawingPolygonMode" ng-cloak>
+            <div id="spectrum-overlay-display-topbar" ng-include="'templates/polygonDrawingTool/topbar.html'"></div>
+            <div id="spectrum-overlay-display-canvas" ng-include="'templates/polygonDrawingTool/canvas.html'"></div>
+        </div>
+    </div>
+    <div class="bot-bar not-selectable">
+        <div id="bottombar" ng-include="'templates/bottombar.html'"></div>
+    </div>
+</div>
+<!-- End of display-container -->
+<!-- At the present moment to create a upload dialog you HAVE to use a input type=file still -->
+<input type="file" class="hidden" id="file_uploader_pipe" />
+</body>
+
+</html>
